@@ -1,6 +1,6 @@
 import "./App.css";
 import AppRouter from "./router/AppRouter";
-import { createTheme,ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createTheme({
   palette: {
@@ -11,6 +11,9 @@ const theme = createTheme({
     },
     secondary: {
       main: "#F2F2F6",
+    },
+    typography: {
+      fontFamily: { fontFamily: ["Inter, sans-serif"].join(",") },
     },
   },
 });

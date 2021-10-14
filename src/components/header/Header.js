@@ -2,7 +2,13 @@ import Brand from "./Brand";
 import HeaderActions from "./HeaderActions";
 import SearchBar from "./SearchBar";
 import HeaderListBasket from "./HeaderListBasket";
-import { Box, AppBar, Toolbar, IconButton } from "@material-ui/core";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -13,12 +19,9 @@ const useHeaderStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#ffff",
     color: theme.palette.primary.main,
-    padding: "15px 10px",
-  },
-  toolbar:{
-      display: "flex",
-      justifyContent:"space-between",
-      width:"100%"
+    padding: "10px",
+    display: "grid",
+    justifyContent: "space-between",
   },
   menu: {
     m: 1,
@@ -43,18 +46,11 @@ const Header = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Box>
-            <Brand />
-          </Box>
-          <Box>
-            <SearchBar />
-          </Box>
-          <Box>
-            <HeaderActions />
-          </Box>
-          <Box>
-            <HeaderListBasket />
-          </Box>
+
+          <Brand />
+          <SearchBar />
+          <HeaderActions />
+          <HeaderListBasket />
         </Toolbar>
       </AppBar>
     </Box>
