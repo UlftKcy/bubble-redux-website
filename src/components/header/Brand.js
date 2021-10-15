@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useBrandStyles = makeStyles((theme) => ({
   brand: {
     display: "flex",
+    justifyContent:"center",
+    alignSelf:"center",
     flexGrow: 1,
     "&:hover": {
       cursor: "pointer",

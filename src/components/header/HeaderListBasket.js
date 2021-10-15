@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useListBasketStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    justifyContent:"center",
     flexGrow: 1,
   },
   button: {

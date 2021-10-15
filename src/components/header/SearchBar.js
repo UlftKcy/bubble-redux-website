@@ -6,6 +6,7 @@ import InputBase from "@material-ui/core/InputBase";
 const Search = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
+  alignItems:"center",
   flexGrow: 1,
   backgroundColor: theme.palette.secondary.main,
   borderRadius: "5px",
@@ -13,14 +14,14 @@ const Search = styled("div")(({ theme }) => ({
     border: "3px solid",
     borderColor: theme.palette.primary.light,
   },
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("md")]: {
     marginLeft: theme.spacing(3),
     width: "auto",
   },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: 15,
+  padding: ".3rem",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -32,6 +33,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "50ch",
+      height: "4ch",
     },
   },
 }));
