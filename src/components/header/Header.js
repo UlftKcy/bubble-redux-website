@@ -3,12 +3,20 @@ import HeaderActions from "./HeaderActions";
 import SearchBar from "./SearchBar";
 import HeaderListBasket from "./HeaderListBasket";
 import MenuItem from "@material-ui/core/MenuItem";
-import { AppBar, Toolbar, IconButton, Drawer,Box } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Drawer,
+  Box,
+  Button,
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 
 const productCategories = [
   {
@@ -44,10 +52,6 @@ const productCategories = [
     href: "/accessories",
   },
   {
-    category: "Stationery & Office",
-    href: "/stationeryoffice",
-  },
-  {
     category: "Gifts",
     href: "/gifts",
   },
@@ -62,16 +66,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: "#ffff",
     color: theme.palette.primary.main,
-    padding:10
+    padding: 10,
   },
   toolbar: {
     display: "flex",
-    flexDirection:"column",
-    gap:20,
+    flexDirection: "column",
+    gap: 20,
   },
-  navbar:{
+  navbar: {
     display: "flex",
-    justifyContent:"space-around",
+    justifyContent: "space-around",
     width: "100%",
   },
   menubutton: {
@@ -80,7 +84,26 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "38px",
   },
   drawercontainer: {
-    padding: "20px 50px",
+    minHeight: "100vh",
+    padding: "20px 0",
+  },
+  categoryItem: {
+    display: "flex",
+    justifyContent: "space-between",
+    borderBottom: "1px solid #ddd",
+    padding: "20px 40px",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
+  categorylink: {
+    color: theme.palette.primary.light,
+    fontSize: "1.1rem",
+    textTransform: "capitalize",
+    fontWeight: "600",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
   },
 }));
 
@@ -112,13 +135,13 @@ const Header = () => {
     return (
       <Toolbar className={classes.toolbar}>
         <Box className={classes.navbar}>
-        <Brand />
+          <Brand />
           <SearchBar />
           <HeaderActions />
           <HeaderListBasket />
         </Box>
         <Box className={classes.navbar}>
-        <NavLinks productCategories={productCategories} />
+          <NavLinks productCategories={productCategories} />
         </Box>
       </Toolbar>
     );
@@ -151,7 +174,7 @@ const Header = () => {
             onClose: handleDrawerClose,
           }}
         >
-          <div className={classes.drawercontainer}>{getDrawer()}</div>
+          <Box className={classes.drawercontainer}>{getDrawer()}</Box>
         </Drawer>
         <Brand />
         <SearchBar />
@@ -170,16 +193,21 @@ const Header = () => {
             key: category,
           }}
         >
-          <MenuItem>{category}</MenuItem>
+          <MenuItem className={classes.categoryItem}>
+            <Button className={classes.categorylink}>{category}</Button>
+            <KeyboardArrowRightIcon color="primary" />
+          </MenuItem>
         </Link>
       );
     });
   };
 
   return (
-    <AppBar position="static" className={classes.appbar}>
+    <Box sx={{ flexGrow: 1 }} className={classes.root}>
+      <AppBar position="static" className={classes.appbar}>
       {mobilView ? displayMobile() : displayDesktop()}
     </AppBar>
+    </Box>
   );
 };
 

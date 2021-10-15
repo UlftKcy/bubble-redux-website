@@ -5,18 +5,18 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   navlink: {
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.light,
     "&:hover": {
       color: theme.palette.primary.dark,
-      fontWeight: "700",
     },
     "&:active": {
       color: "blue",
     },
   },
-  categorylink:{
-      fontSize:"1.2rem",
-    }
+  categorylink: {
+    fontSize: "1.1rem",
+    fontWeight: "600",
+  },
 }));
 
 const NavLinks = ({ productCategories }) => {

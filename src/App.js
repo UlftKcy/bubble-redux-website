@@ -1,6 +1,7 @@
 import "./App.css";
 import AppRouter from "./router/AppRouter";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
+import React from "react";
 
 const theme = createTheme({
   palette: {
@@ -21,7 +22,10 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <AppRouter />
+      <React.Fragment>
+        <CssBaseline />
+        <AppRouter />
+      </React.Fragment>
     </ThemeProvider>
   );
 }
