@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router";
 
 const useActionStyles = makeStyles((theme) => ({
   root: {
@@ -11,7 +12,7 @@ const useActionStyles = makeStyles((theme) => ({
   button: {
     color: theme.palette.primary.main,
     size: "small",
-    padding:"10px 20px",
+    padding: "10px 20px",
     fontWeight: "600",
     textTransform: "capitalize",
     fontFamily: theme.typography.fontFamily,
@@ -24,11 +25,19 @@ const useActionStyles = makeStyles((theme) => ({
 
 const HeaderActions = () => {
   const classes = useActionStyles();
+  const history = useHistory();
   return (
     <Box className={classes.root}>
       <Button className={classes.button}>Sell</Button>
-      <Button className={classes.button}>Login</Button>
-      <Button className={classes.button}>Signup</Button>
+      <Button onClick={() => history.push("/login")} className={classes.button}>
+        Login
+      </Button>
+      <Button
+        onClick={() => history.push("/signup")}
+        className={classes.button}
+      >
+        Signup
+      </Button>
     </Box>
   );
 };

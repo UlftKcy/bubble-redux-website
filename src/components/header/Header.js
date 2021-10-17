@@ -205,8 +205,8 @@ const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }} className={classes.root}>
       <AppBar position="static" className={classes.appbar}>
-      {mobilView ? displayMobile() : displayDesktop()}
-    </AppBar>
+        {mobilView ? displayMobile() : displayDesktop()}
+      </AppBar>
     </Box>
   );
 };
