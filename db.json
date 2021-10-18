@@ -1,0 +1,58 @@
+{
+    "categories": [
+        {"id": 1,"name": "Clothing","image": "https://ih1.redbubble.net/image.420761902.1732/ssrco,mhoodie,mens,101010:01c5ca27c6,front,square_product,x600-bg,f8f8f8.1u7.jpg"},
+    
+        {"id": 2,"name": "Stickers","image": "https://ih1.redbubble.net/image.268637580.8289/st,small,507x507-pad,600x600,f8f8f8.u5.jpg"},
+    
+        {"id": 3,"name": "Wall Art","image": "https://ih1.redbubble.net/image.706067950.2072/aps,504x498,small,transparent-pad,600x600,f8f8f8.u5.jpg"},
+    
+        {"id": 4,"name": "Home & Living","image": "https://ih1.redbubble.net/image.994511223.8874/throwpillow,36x36,600x-bg,f8f8f8-c,0,120,600,600.u1.jpg"},
+    
+        {"id": 5,"name": "Office", "image" :" https://ih1.redbubble.net/image.377716031.2856/sn,x600-pad,600x600,f8f8f8.u2.jpg"},
+    
+        {"id": 6,"name": "Gifts","image": "https://ih1.redbubble.net/image.1219052129.9501/ur,coaster_pack_4_flatlay,square,600x600.2u3.jpg"},
+    
+        {"id": 7,"name": "Accessories","image": "https://ih1.redbubble.net/image.575276984.8684/scarf,x630-pad,600x600,f8f8f8.u2.jpg"},
+    
+        {"id": 8,"name": "Kid & Babies","image": "https://ih1.redbubble.net/image.201011190.2968/ra,kids_tee,x750,000000:44f0b734a5,front-pad,600x600,f8f8f8.u8.jpg"},
+    
+        {"id": 9,"name": "Phone Cases","image": "https://ih1.redbubble.net/image.994491797.9033/icr,iphone_13_soft,back,a,x600-pad,600x600,f8f8f8.u1.jpg"}
+      ],
+    
+      "products": [
+        {"id": 1,"name": "Real - Therapy Session NF Pullover Hoodie","price": "$47.21","brand": "IainW98","image": "https://ih1.redbubble.net/image.420761902.1732/ssrco,mhoodie,mens,101010:01c5ca27c6,front,square_product,x600-bg,f8f8f8.1u7.jpg","categoryId":"1"},
+    
+        {"id": 2,"name": "Electrical Friends - LED Sticker","price": "$2.51","brand": "scubadiv3r","image": "https://ih1.redbubble.net/image.268637580.8289/st,small,507x507-pad,600x600,f8f8f8.u5.jpg","categoryId":"2"},
+    
+        {"id": 3,"name": "I Thought of the Life that Could Have Been Art Print","price": "$14.51","brand": "Norman Duenas","image": "https://ih1.redbubble.net/image.706067950.2072/aps,504x498,small,transparent-pad,600x600,f8f8f8.u5.jpg","categoryId":"3"},
+        
+        {"id": 4,"name": "Space Foxes Floor Pillow","price": "$50.41","brand": " Maike Vierkant","image": "https://ih1.redbubble.net/image.994511223.8874/throwpillow,36x36,600x-bg,f8f8f8-c,0,120,600,600.u1.jpg","categoryId":"4"},
+        {"id": 5,"name": "Office","price": "","brand": "","image": "https://ih1.redbubble.net/image.377716031.2856/sn,x600-pad,600x600,f8f8f8.u2.jpg","categoryId":"5"},
+    
+        {"id": 6,"name": "Music Everywhere Coasters (Set of 4)","price": "$15.85","brand": "Florent Bodart","image": "https://ih1.redbubble.net/image.1219052129.9501/ur,coaster_pack_4_flatlay,square,600x600.2u3.jpg","categoryId":"6"},
+        {"id": 7,"name": "Sapphire & Jade Stained Glass Mandalas Scarf","price": "$25.75","brand": "micklyn","image": "https://ih1.redbubble.net/image.575276984.8684/scarf,x630-pad,600x600,f8f8f8.u2.jpg","categoryId":"7"},
+        {"id": 8,"name": "The Sass Is Strong Funny Quote Kids T-Shirt","price": "$20.23","brand": "quarantine81","image": "https://ih1.redbubble.net/image.201011190.2968/ra,kids_tee,x750,000000:44f0b734a5,front-pad,600x600,f8f8f8.u8.jpg","categoryId":"8"},
+        {"id": 9,"name": "Space Turtles iPhone Case","price": "$16.56","brand": "Maike Vierkant","image": "https://ih1.redbubble.net/image.994491797.9033/icr,iphone_13_soft,back,a,x600-pad,600x600,f8f8f8.u1.jpg","categoryId":"9"}
+      ],
+      "featuredProducts": [
+        {"id": 1,"name": "Tokyo - A Neon Wonderland iPhone Case","price": "$17.25","brand": "HimanshiShah","image": "https://ih1.redbubble.net/image.578176039.2751/icr,iphone_13_soft,back,a,x600-pad,600x600,f8f8f8.u3.jpg"},
+        {"id": 2,"name": "Wise Words of the Nine-Nine Duvet Cover","price": "$108.02","brand": "huckblade","image": "https://ih1.redbubble.net/image.1098230469.2090/dc,600x600,queen,bed.u1.jpg"},
+    
+        {"id": 3,"name": "Rosedale Framed Art Print","price": "$80.99","brand": "CoastIsCalling","image": "https://ih1.redbubble.net/image.1194075652.0817/fp,504x498,black,off_white,box20,s,f8f8f8-pad,600x600,f8f8f8.jpg"},
+    
+        {"id": 4,"name": "Salem Witch in Black Backpack","price": "$53.17","brand": "Brett Manning","image": "https://ih1.redbubble.net/image.1633415270.9051/ur,backpack_front,square,600x600.jpg"},
+    
+        {"id": 5,"name": "Asteroid Map of the Solar System Metal Print","price": "$42.40","brand": "Eleanor Lutz","image": "https://ih1.redbubble.net/image.1249492580.3641/mp,504x516,gloss,f8f8f8,t-pad,600x600,f8f8f8.u1.jpg"},
+    
+        {"id": 6,"name": "Play that beat Classic T-Shirt","price": "$17.80","brand": "tonyneal","image": "https://ih1.redbubble.net/image.275972864.8392/ssrco,classic_tee,mens,f89f2b:1617e563f0,front_alt,square_product,600x600.u1.jpg"},
+    
+        {"id": 7,"name": "Pandamic mask - Furry Face mask","price": "$13.42","brand": " Typhoonic","image": "https://ih1.redbubble.net/image.1180337603.1322/ur,kids_mask_7x3_flatlay_front,product,600x600.jpg"},
+    
+        {"id": 8,"name": "Fullmetal Alchemist Flamel Clock","price": "$32.52","brand": "R-evolution GFX","image": "https://ih1.redbubble.net/image.1479512411.5945/clkf,black,red,600x600-bg,f8f8f8.u3.jpg"},
+    
+        {"id": 9,"name": "Koi Watergarden Jigsaw Puzzle","price": "$33.48","brand": "Karin Taylor","image": "https://ih1.redbubble.net/image.2633438331.1323/ur,jigsaw_puzzle_252_piece_flatlay,square_product,600x600-bg,f8f8f8.jpg"},
+    
+        {"id": 10,"name": "Whippet Silhouette(s) Water Bottle","price": "$18.67","brand": "Jenn Inashvili","image": "https://ih1.redbubble.net/image.969539460.8318/ur,water_bottle_metal_lid_on,square,600x600.2.jpg"}
+      ]
+      
+  }
