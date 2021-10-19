@@ -6,7 +6,7 @@ import { Button, Header, Image, Modal,Icon } from 'semantic-ui-react';
 
 const useCardStyle = makeStyles((theme) => ({
     card : {
-        maxWidth: 345,
+        maxWidth: 350,
         height: "100%",
         position: "relative",
         display:"flex",

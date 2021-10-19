@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import ShopProduct from "./ShopProduct";
 import { fetchCategoryList } from "../../store/actions/fetchCategoryList";
 import { useSelector, useDispatch } from "react-redux";
-import { makeStyles } from "@material-ui/core";
 
 const Products = () => {
   const productCategories = useSelector((state) => state.categories.categoryList);

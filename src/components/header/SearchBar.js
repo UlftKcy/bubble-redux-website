@@ -6,14 +6,10 @@ import InputBase from "@material-ui/core/InputBase";
 const Search = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
-  alignItems:"center",
+  alignItems: "center",
   flexGrow: 1,
   backgroundColor: theme.palette.secondary.main,
   borderRadius: "5px",
-  "&:active": {
-    border: "3px solid",
-    borderColor: theme.palette.primary.light,
-  },
   [theme.breakpoints.up("md")]: {
     marginLeft: theme.spacing(3),
     width: "auto",
