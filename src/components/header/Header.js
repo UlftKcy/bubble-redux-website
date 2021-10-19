@@ -28,14 +28,6 @@ const productCategories = [
     href: "/stickers",
   },
   {
-    category: "Masks",
-    href: "/masks",
-  },
-  {
-    category: "Phone Cases",
-    href: "/phonecases",
-  },
-  {
     category: "Wall Art",
     href: "/wallart",
   },
@@ -44,20 +36,24 @@ const productCategories = [
     href: "/homeliving",
   },
   {
-    category: "Kid & Babies",
-    href: "/kidbabies",
-  },
-  {
-    category: "Accessories",
-    href: "/accessories",
+    category: "Office",
+    href: "/office",
   },
   {
     category: "Gifts",
     href: "/gifts",
   },
   {
-    category: "Explore Designs",
-    href: "/exploredesigns",
+    category: "Accessories",
+    href: "/accessories",
+  },
+  {
+    category: "Kid & Babies",
+    href: "/kidbabies",
+  },
+  {
+    category: "Phone Cases",
+    href: "/phonecases",
   },
 ];
 

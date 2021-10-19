@@ -6,13 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core";
 
 const Products = () => {
-  const productCategories = useSelector(
-    (state) => state.categories.categoryList
-  );
+  const productCategories = useSelector((state) => state.categories.categoryList);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCategoryList());
-  }, []);
+  }, [dispatch]);
   
   return (
     <Grid container sx={{ flexGrow: 1 }} style={{padding:20}}>

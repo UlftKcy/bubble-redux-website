@@ -1,20 +1,31 @@
-import { Grid, Card, CardMedia, CardContent, Button, makeStyles ,Fab} from "@material-ui/core";
+import { Grid, Card, CardMedia, CardContent, makeStyles ,Fab} from "@material-ui/core";
+import { useDispatch,useSelector } from "react-redux";
+import fetchShopProduct from "../../store/actions/fetchShopProduct";
+import React, {useState} from 'react';
+import { Button, Header, Image, Modal,Icon } from 'semantic-ui-react';
 
 const useCardStyle = makeStyles((theme) => ({
     card : {
         maxWidth: 345,
         height: "100%",
         position: "relative",
+        display:"flex",
+        flexDirection:"column"
     },
     content:{
+        alignSelf:"center",
         position: "absolute",
         bottom: 20,
     },
-}))
+}));
 
-const ShopProduct = ({ category }) => {
+const ShopProduct = ({ category,id }) => {
   const { name, image } = category;
   const classes = useCardStyle();
+  const dispatch = useDispatch()
+  const displayProduct = useSelector(state => state.shopProduct.product)
+  const [open, setOpen] = useState(false)
+
   return (
       <Grid item>
         <Card
@@ -22,11 +33,44 @@ const ShopProduct = ({ category }) => {
         >
           <CardMedia className={classes.media} image={image} component="img" alt={name} />
           <CardContent className={classes.content}>
-            <Fab variant="extended">`Shop {name}`</Fab>
+             <Modal
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<Fab onClick={()=>dispatch(fetchShopProduct(category))} variant="extended">Shop {name}</Fab>}
+    >
+      <Modal.Header>BUBBLE</Modal.Header>
+      <Modal.Content image>
+        <Image size='medium' src={displayProduct.image} wrapped />
+        <Modal.Description>
+          <Header>{displayProduct.name}</Header>
+          <p>
+           by {displayProduct.brand}
+          </p>
+          <p>{displayProduct.price}</p>
+        </Modal.Description>
+      </Modal.Content>
+      <Modal.Actions>
+        <Button color='black' onClick={() => setOpen(false)}>
+          Close
+        </Button>
+        <Button
+       
+          icon='checkmark'
+          onClick={() => setOpen(false)}
+          positive
+         animated='vertical'>
+      <Button.Content hidden>Shop</Button.Content>
+      <Button.Content visible>
+        <Icon name='shop' />
+      </Button.Content>
+    </Button>
+      </Modal.Actions>
+    </Modal>
           </CardContent>
         </Card>
       </Grid>
   );
 };
-
 export default ShopProduct;
+
