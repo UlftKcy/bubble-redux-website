@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) =>({
 const Dashboard = () => {
     const classes = useStyles()
     return (
-        <Container className = {classes.container}>
+        <Container maxWidth="lg" className = {classes.container}>
             <Banner/>
             <Products/>
         </Container>
