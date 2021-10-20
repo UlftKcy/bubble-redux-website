@@ -7,6 +7,7 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useCardStyle = makeStyles((theme) => ({
   card: {
@@ -19,10 +20,11 @@ const useCardStyle = makeStyles((theme) => ({
 }));
 
 const FeaturedProductItem = ({ product }) => {
-  const { name, image, price, brand } = product;
+  const { id,name, image, price, brand } = product;
   const classes = useCardStyle();
   return (
     <Grid item>
+      <Link to={`/featuredProducts/${id}`}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -43,6 +45,7 @@ const FeaturedProductItem = ({ product }) => {
           </Typography>
         </CardContent>
       </Card>
+      </Link>
     </Grid>
   );
 };
