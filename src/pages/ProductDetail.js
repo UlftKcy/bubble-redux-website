@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Button, Container, Item, Icon } from "semantic-ui-react";
 import { fetchFeaturedDetail } from "../store/actions/fetchFeaturedDetail";
+import { addProductToCart } from "../store/actions/cartActions";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -12,11 +13,10 @@ const ProductDetail = () => {
   );
 
   const { name, image, brand, price } = detailProduct;
-  
 
   useEffect(() => {
     dispatch(fetchFeaturedDetail(productId));
-  }, [dispatch]);
+  }, [dispatch, productId]);
 
   return (
     <Container text>
@@ -29,7 +29,13 @@ const ProductDetail = () => {
             <Item.Description>by {brand}</Item.Description>
             <Item.Description>{price}</Item.Description>
             <Item.Extra>
-              <Button size="large" animated="vertical" color='green' fluid>
+              <Button
+                onClick={() => dispatch(addProductToCart(detailProduct))}
+                size="large"
+                animated="vertical"
+                color="green"
+                fluid
+              >
                 <Button.Content hidden>Add to cart</Button.Content>
                 <Button.Content visible>
                   <Icon name="shop" />

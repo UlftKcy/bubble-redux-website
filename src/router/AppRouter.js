@@ -4,7 +4,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import ProductDetail from "../pages/ProductDetail";
-import Basket from "../pages/Basket";
+import Cart from "../pages/Cart";
 
 const AppRouter = () => {
   return (
@@ -15,7 +15,7 @@ const AppRouter = () => {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/featuredProducts/:productId" component={ProductDetail}/>
-        <Route path="/basket" component={Basket}/>
+        <Route path="/cart" component={Cart}/>
       </Switch>
     </Router>
   );
