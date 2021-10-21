@@ -12,6 +12,7 @@ const ProductDetail = () => {
   );
 
   const { name, image, brand, price } = detailProduct;
+  
 
   useEffect(() => {
     dispatch(fetchFeaturedDetail(productId));

@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import ProductDetail from "../pages/ProductDetail";
+import Basket from "../pages/Basket";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/featuredProducts/:productId" component={ProductDetail}/>
+        <Route path="/basket" component={Basket}/>
       </Switch>
     </Router>
   );

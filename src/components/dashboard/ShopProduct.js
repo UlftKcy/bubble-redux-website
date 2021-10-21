@@ -55,7 +55,6 @@ const ShopProduct = ({ category,id }) => {
           Close
         </Button>
         <Button
-       
           icon='checkmark'
           onClick={() => setOpen(false)}
           positive
