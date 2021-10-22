@@ -10,12 +10,17 @@ import {
   Button,
   IconButton,
 } from "@material-ui/core";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
 import RemoveIcon from "@material-ui/icons/Remove";
 import DeleteIcon from "@material-ui/icons/Delete";
+import {
+  addProductToCart,
+  decreaseProductFromCart,
+  removeProductFromCart,
+} from "../store/actions/cartActions";
 
 const useCardStyle = makeStyles((theme) => ({
   root: {
@@ -45,6 +50,17 @@ const useCardStyle = makeStyles((theme) => ({
 const Cart = () => {
   const cartProducts = useSelector((state) => state.cartReducers.cartItems);
   const classes = useCardStyle();
+  const dispatch = useDispatch();
+
+  const handleDecreseCart = (product) => {
+    dispatch(decreaseProductFromCart(product));
+  };
+  const handleAddCart = (product) => {
+    dispatch(addProductToCart(product));
+  };
+  const handleRemoveCart = (product) => {
+    dispatch(removeProductFromCart(product));
+  };
 
   return (
     <Grid container wrap className={classes.root}>
@@ -74,19 +90,35 @@ const Cart = () => {
                       {brand}
                     </TableCell>
                     <TableCell>
-                      <Button className={classes.button}>
+                      <Button
+                        onClick={() => handleDecreseCart(cartProduct)}
+                        className={classes.button}
+                      >
                         <RemoveIcon />
                       </Button>
                       <span className={classes.span}>{cartQuantity}</span>
-                      <Button className={classes.button}>
+                      <Button
+                        onClick={() => handleAddCart(cartProduct)}
+                        className={classes.button}
+                      >
                         <ControlPointIcon />
                       </Button>
                     </TableCell>
                     <TableCell>
-                      <span className={classes.span}>{price}</span>
+                      <span className={classes.span}>
+                        {parseFloat(
+                          (
+                            cartProduct.price * cartProduct.cartQuantity
+                          ).toFixed(2)
+                        )}
+                      </span>
                     </TableCell>
                     <TableCell>
-                      <IconButton aria-label="delete" color="primary">
+                      <IconButton
+                        onClick={() => handleRemoveCart(cartProduct)}
+                        aria-label="delete"
+                        color="primary"
+                      >
                         <DeleteIcon />
                       </IconButton>
                     </TableCell>

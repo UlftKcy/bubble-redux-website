@@ -2,6 +2,8 @@ import "./App.css";
 import AppRouter from "./router/AppRouter";
 import { createTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme({
   palette: {
@@ -25,6 +27,7 @@ function App() {
       <React.Fragment>
         <CssBaseline />
         <AppRouter />
+        <ToastContainer />
       </React.Fragment>
     </ThemeProvider>
   );

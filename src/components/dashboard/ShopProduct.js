@@ -34,6 +34,11 @@ const ShopProduct = ({ category, id }) => {
   const displayProduct = useSelector((state) => state.shopProduct.product);
   const [open, setOpen] = useState(false);
 
+  const handleShop = (product) => {
+    dispatch(addProductToCart(product));
+    setOpen(false);
+  };
+
   return (
     <Grid item>
       <Card className={classes.card}>
@@ -72,11 +77,11 @@ const ShopProduct = ({ category, id }) => {
               </Button>
               <Button
                 icon="checkmark"
-                onClick={() => dispatch(addProductToCart(displayProduct))}
+                onClick={() => handleShop(displayProduct)}
                 positive
                 animated="vertical"
               >
-                <Button.Content hidden>Shop</Button.Content>
+                <Button.Content hidden>Cart</Button.Content>
                 <Button.Content visible>
                   <Icon name="shop" />
                 </Button.Content>
