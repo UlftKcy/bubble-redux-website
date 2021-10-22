@@ -25,12 +25,12 @@ import {
 const useCardStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
+    justifyContent:"space-around",
     flexGrow: 1,
     margin: theme.spacing.unit * 3,
   },
   wrapper: {
     backgroundColor: theme.palette.secondary.main,
-    margin: "auto",
     paddingLeft: 40,
     paddingRight: 40,
   },
@@ -45,12 +45,19 @@ const useCardStyle = makeStyles((theme) => ({
   span: {
     fontSize: "1.2rem",
   },
+  checkoutBody:{
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"space-between"
+  },
 }));
 
 const Cart = () => {
   const cartProducts = useSelector((state) => state.cartReducers.cartItems);
   const classes = useCardStyle();
   const dispatch = useDispatch();
+
+  console.log(cartProducts)
 
   const handleDecreaseCart = (product) => {
     dispatch(decreaseProductFromCart(product));
@@ -63,7 +70,7 @@ const Cart = () => {
   };
 
   return (
-    <Grid container wrap className={classes.root}>
+    <Grid className={classes.root}>
       <Paper container className={classes.wrapper}>
         <TableContainer>
           <Table>
@@ -78,7 +85,7 @@ const Cart = () => {
             </TableHead>
             <TableBody>
               {cartProducts.map((cartProduct) => {
-                const { image, name, brand, cartQuantity, price, id } =
+                const { image, name, brand, cartQuantity, cartAmount } =
                   cartProduct;
                 return (
                   <TableRow>
@@ -106,11 +113,7 @@ const Cart = () => {
                     </TableCell>
                     <TableCell>
                       <span className={classes.span}>
-                        {parseFloat(
-                          (
-                            cartProduct.price * cartProduct.cartQuantity
-                          ).toFixed(2)
-                        )}
+                        ${cartAmount}
                       </span>
                     </TableCell>
                     <TableCell>
@@ -127,6 +130,31 @@ const Cart = () => {
               })}
             </TableBody>
           </Table>
+        </TableContainer>
+      </Paper>
+      <Paper container className={classes.wrapper}>
+        <TableContainer>
+          <TableBody classname={classes.checkoutBody}>
+            <TableRow>
+              <TableCell className={classes.thead}>
+                ITEMS
+              </TableCell>
+              <TableCell className={classes.thead}>
+                TOTAL
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                ITEMS
+              </TableCell>
+              <TableCell>
+                TOTAL
+              </TableCell>
+            </TableRow>
+            <TableRow>
+            <Button variant="contained" color="primary">Checkout</Button>
+            </TableRow>
+          </TableBody>
         </TableContainer>
       </Paper>
     </Grid>
