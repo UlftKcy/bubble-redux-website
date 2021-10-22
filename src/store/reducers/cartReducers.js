@@ -25,7 +25,9 @@ const cartReducers = (state = initialState, action) => {
         state.cartItems[existingIndex] = {
           ...state.cartItems[existingIndex],
           cartQuantity: state.cartItems[existingIndex].cartQuantity + 1,
-          cartAmount : state.cartItems[existingIndex].cartAmount + parseFloat(( 1 * action.payload.price).toFixed(2))
+          cartAmount:
+            state.cartItems[existingIndex].cartAmount +
+            parseFloat((1 * action.payload.price).toFixed(2)),
         };
         toast.success("Increased product quantity", {
           position: "bottom-right",
@@ -34,7 +36,7 @@ const cartReducers = (state = initialState, action) => {
         let newItem = {
           ...action.payload,
           cartQuantity: 1,
-          cartAmount : parseFloat(( 1 * action.payload.price).toFixed(2))
+          cartAmount: parseFloat((1 * action.payload.price).toFixed(2)),
         };
         state.cartItems.push(newItem);
         toast.success("Product added to cart", {
@@ -52,7 +54,9 @@ const cartReducers = (state = initialState, action) => {
         state.cartItems[itemIndex] = {
           ...state.cartItems[itemIndex],
           cartQuantity: state.cartItems[itemIndex].cartQuantity - 1,
-          cartAmount : state.cartItems[itemIndex].cartAmount - parseFloat(( 1 * action.payload.price).toFixed(2))
+          cartAmount:
+            state.cartItems[itemIndex].cartAmount -
+            parseFloat((1 * action.payload.price).toFixed(2)),
         };
         toast.error("Decreased product quantity", {
           position: "bottom-right",

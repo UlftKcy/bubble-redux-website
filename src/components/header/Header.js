@@ -63,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffff",
     color: theme.palette.primary.main,
     padding: 10,
+    "@media (max-width: 900px)": {
+      paddingLeft: 0,
+    },
   },
   toolbar: {
     display: "flex",
@@ -77,11 +80,9 @@ const useStyles = makeStyles((theme) => ({
   menubutton: {
     fontWeight: 700,
     size: "18px",
-    marginLeft: "38px",
   },
   drawercontainer: {
-    minHeight: "100vh",
-    padding: "20px 0",
+    padding: "20px 30px",
   },
   categoryItem: {
     display: "flex",
@@ -114,7 +115,7 @@ const Header = () => {
   // render on resize
   useEffect(() => {
     const handleResize = () => {
-      return window.innerWidth < 1100
+      return window.innerWidth < 900
         ? setState((prevState) => ({ ...prevState, mobilView: true }))
         : setState((prevState) => ({ ...prevState, mobilView: false }));
     };
@@ -170,10 +171,9 @@ const Header = () => {
             onClose: handleDrawerClose,
           }}
         >
-          <Box className={classes.drawercontainer}>{getDrawer()}</Box>
+          <div className={classes.drawercontainer}>{getDrawer()}</div>
         </Drawer>
         <Brand />
-        <SearchBar />
         <HeaderListBasket />
       </Toolbar>
     );

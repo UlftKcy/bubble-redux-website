@@ -25,7 +25,7 @@ import {
 const useCardStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent:"space-around",
+    justifyContent: "space-around",
     flexGrow: 1,
     margin: theme.spacing.unit * 3,
   },
@@ -45,10 +45,10 @@ const useCardStyle = makeStyles((theme) => ({
   span: {
     fontSize: "1.2rem",
   },
-  checkoutBody:{
-    display:"flex",
-    flexDirection:"column",
-    justifyContent:"space-between"
+  checkoutBody: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 }));
 
@@ -56,8 +56,6 @@ const Cart = () => {
   const cartProducts = useSelector((state) => state.cartReducers.cartItems);
   const classes = useCardStyle();
   const dispatch = useDispatch();
-
-  console.log(cartProducts)
 
   const handleDecreaseCart = (product) => {
     dispatch(decreaseProductFromCart(product));
@@ -112,9 +110,7 @@ const Cart = () => {
                       </Button>
                     </TableCell>
                     <TableCell>
-                      <span className={classes.span}>
-                        ${cartAmount}
-                      </span>
+                      <span className={classes.span}>${cartAmount}</span>
                     </TableCell>
                     <TableCell>
                       <IconButton
@@ -136,23 +132,17 @@ const Cart = () => {
         <TableContainer>
           <TableBody classname={classes.checkoutBody}>
             <TableRow>
-              <TableCell className={classes.thead}>
-                ITEMS
-              </TableCell>
-              <TableCell className={classes.thead}>
-                TOTAL
-              </TableCell>
+              <TableCell className={classes.thead}>ITEMS</TableCell>
+              <TableCell className={classes.thead}>TOTAL</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>
-                ITEMS
-              </TableCell>
-              <TableCell>
-                TOTAL
-              </TableCell>
+              <TableCell>ITEMS</TableCell>
+              <TableCell>TOTAL</TableCell>
             </TableRow>
             <TableRow>
-            <Button variant="contained" color="primary">Checkout</Button>
+              <Button variant="contained" color="primary">
+                Checkout
+              </Button>
             </TableRow>
           </TableBody>
         </TableContainer>

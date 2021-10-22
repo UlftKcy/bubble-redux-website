@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 const useActionStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "center",
     flexGrow: 1,
   },
   button: {
@@ -28,7 +28,6 @@ const HeaderActions = () => {
   const history = useHistory();
   return (
     <Box className={classes.root}>
-      <Button className={classes.button}>Sell</Button>
       <Button onClick={() => history.push("/login")} className={classes.button}>
         Login
       </Button>
