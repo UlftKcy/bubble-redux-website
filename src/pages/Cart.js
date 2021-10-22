@@ -52,7 +52,7 @@ const Cart = () => {
   const classes = useCardStyle();
   const dispatch = useDispatch();
 
-  const handleDecreseCart = (product) => {
+  const handleDecreaseCart = (product) => {
     dispatch(decreaseProductFromCart(product));
   };
   const handleAddCart = (product) => {
@@ -91,7 +91,7 @@ const Cart = () => {
                     </TableCell>
                     <TableCell>
                       <Button
-                        onClick={() => handleDecreseCart(cartProduct)}
+                        onClick={() => handleDecreaseCart(cartProduct)}
                         className={classes.button}
                       >
                         <RemoveIcon />
