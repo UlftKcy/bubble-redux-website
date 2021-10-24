@@ -4,7 +4,6 @@ import {
   ADD_PRODUCT_TO_CART,
   DECREASE_PRODUCT_FROM_CART,
   REMOVE_PRODUCT_FROM_CART,
-  CLEAN_CART,
 } from "../actionTypes/types";
 
 const initialState = {
@@ -44,7 +43,13 @@ const cartReducers = (state = initialState, action) => {
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      return state;
+      return {
+        ...state,
+        cartTotalQuantity: state.cartTotalQuantity + 1,
+        cartTotalAmount:
+          state.cartTotalAmount +
+          parseFloat((1 * action.payload.price).toFixed(2)),
+      };
 
     case DECREASE_PRODUCT_FROM_CART:
       const itemIndex = state.cartItems.findIndex(
@@ -71,7 +76,13 @@ const cartReducers = (state = initialState, action) => {
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      return state;
+      return {
+        ...state,
+        cartTotalQuantity: state.cartTotalQuantity - 1,
+        cartTotalAmount:
+          state.cartTotalAmount -
+          parseFloat((1 * action.payload.price).toFixed(2)),
+      };
 
     case REMOVE_PRODUCT_FROM_CART:
       state.cartItems.map((cartItem) => {
@@ -87,13 +98,7 @@ const cartReducers = (state = initialState, action) => {
         }
       });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      return state;
-
-    case CLEAN_CART:
-      state.cartItems = [];
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      toast.error("Cart cleared", { position: "bottom-right" });
-      return state;
+      return { ...state };
     default:
       return state;
   }

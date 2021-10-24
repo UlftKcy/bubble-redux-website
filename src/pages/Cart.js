@@ -1,4 +1,5 @@
 import {
+  Container,
   Grid,
   Paper,
   TableContainer,
@@ -9,6 +10,7 @@ import {
   TableCell,
   Button,
   IconButton,
+  Typography,
 } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,6 +23,8 @@ import {
   decreaseProductFromCart,
   removeProductFromCart,
 } from "../store/actions/cartActions";
+import emptycart from "../assets/emptycart.png";
+import cartReducers from "../store/reducers/cartReducers";
 
 const useCardStyle = makeStyles((theme) => ({
   root: {
@@ -37,13 +41,13 @@ const useCardStyle = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     paddingLeft: 40,
     paddingRight: 40,
-    marginBottom: "30px",
   },
   checkoutWrapper: {
     minwidth: "30%",
     backgroundColor: theme.palette.secondary.main,
     paddingLeft: 40,
     paddingRight: 40,
+    margin: "30px",
   },
   thead: {
     textAlign: "center",
@@ -64,7 +68,7 @@ const useCardStyle = makeStyles((theme) => ({
 }));
 
 const Cart = () => {
-  const cartProducts = useSelector((state) => state.cartReducers.cartItems);
+  const cartProducts = useSelector((state) => state.cartReducers);
   const classes = useCardStyle();
   const dispatch = useDispatch();
 
@@ -77,87 +81,99 @@ const Cart = () => {
   const handleRemoveCart = (product) => {
     dispatch(removeProductFromCart(product));
   };
-
   return (
     <Grid className={classes.root}>
-      <Paper container className={classes.itemsWrapper}>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell className={classes.thead}>ITEM</TableCell>
-                <TableCell className={classes.thead}>NAME</TableCell>
-                <TableCell className={classes.thead}>QTY</TableCell>
-                <TableCell className={classes.thead}>PRICE</TableCell>
-                <TableCell className={classes.thead}></TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {cartProducts.map((cartProduct) => {
-                const { image, name, brand, cartQuantity, cartAmount } =
-                  cartProduct;
-                return (
+      {cartProducts.cartItems.length === 0 ? (
+        <>
+          <Typography variant="h5" gutterBottom component="div">
+            "You have no items in your cart"
+          </Typography>
+          <img src={emptycart} width="300px" fluid />
+        </>
+      ) : (
+        <>
+          <Paper container className={classes.itemsWrapper}>
+            <TableContainer>
+              <Table>
+                <TableHead>
                   <TableRow>
-                    <TableCell scope="row" className={classes.tableCell}>
-                      <img src={image} fluid className={classes.image} />
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <span className={classes.span}>{name}</span> <br />
-                      {brand}
-                    </TableCell>
-                    <TableCell>
-                      <Button
-                        onClick={() => handleDecreaseCart(cartProduct)}
-                        className={classes.button}
-                      >
-                        <RemoveIcon />
-                      </Button>
-                      <span className={classes.span}>{cartQuantity}</span>
-                      <Button
-                        onClick={() => handleAddCart(cartProduct)}
-                        className={classes.button}
-                      >
-                        <ControlPointIcon />
-                      </Button>
-                    </TableCell>
-                    <TableCell>
-                      <span className={classes.span}>${cartAmount}</span>
-                    </TableCell>
-                    <TableCell>
-                      <IconButton
-                        onClick={() => handleRemoveCart(cartProduct)}
-                        aria-label="delete"
-                        color="primary"
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                    </TableCell>
+                    <TableCell className={classes.thead}>ITEM</TableCell>
+                    <TableCell className={classes.thead}>NAME</TableCell>
+                    <TableCell className={classes.thead}>QTY</TableCell>
+                    <TableCell className={classes.thead}>PRICE</TableCell>
+                    <TableCell className={classes.thead}></TableCell>
                   </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
-      <Paper container className={classes.checkoutWrapper}>
-        <TableContainer>
-          <TableBody classname={classes.checkoutBody}>
-            <TableRow>
-              <TableCell className={classes.thead}>ITEMS</TableCell>
-              <TableCell className={classes.thead}>TOTAL</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>ITEMS</TableCell>
-              <TableCell>TOTAL</TableCell>
-            </TableRow>
-            <TableRow>
-              <Button variant="contained" color="primary">
-                Checkout
-              </Button>
-            </TableRow>
-          </TableBody>
-        </TableContainer>
-      </Paper>
+                </TableHead>
+                <TableBody>
+                  {cartProducts.cartItems.map((cartProduct) => {
+                    const { image, name, brand, cartQuantity, cartAmount } =
+                      cartProduct;
+                    return (
+                      <TableRow>
+                        <TableCell scope="row" className={classes.tableCell}>
+                          <img src={image} fluid className={classes.image} />
+                        </TableCell>
+                        <TableCell className={classes.tableCell}>
+                          <span className={classes.span}>{name}</span> <br />
+                          {brand}
+                        </TableCell>
+                        <TableCell>
+                          <Button
+                            onClick={() => handleDecreaseCart(cartProduct)}
+                            className={classes.button}
+                          >
+                            <RemoveIcon />
+                          </Button>
+                          <span className={classes.span}>{cartQuantity}</span>
+                          <Button
+                            onClick={() => handleAddCart(cartProduct)}
+                            className={classes.button}
+                          >
+                            <ControlPointIcon />
+                          </Button>
+                        </TableCell>
+                        <TableCell>
+                          <span className={classes.span}>${cartAmount}</span>
+                        </TableCell>
+                        <TableCell>
+                          <IconButton
+                            onClick={() => handleRemoveCart(cartProduct)}
+                            aria-label="delete"
+                            color="primary"
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          <Paper container className={classes.checkoutWrapper}>
+            <TableContainer>
+              <TableBody classname={classes.checkoutBody}>
+                <TableRow>
+                  <TableCell className={classes.thead}>ITEMS</TableCell>
+                  <TableCell className={classes.thead}>
+                    {cartProducts.cartTotalQuantity}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>TOTALS</TableCell>
+                  <TableCell>{cartProducts.cartTotalAmount}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <Button variant="contained" color="primary">
+                    Checkout
+                  </Button>
+                </TableRow>
+              </TableBody>
+            </TableContainer>
+          </Paper>
+        </>
+      )}
     </Grid>
   );
 };
