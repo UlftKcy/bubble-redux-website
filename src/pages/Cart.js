@@ -25,11 +25,22 @@ import {
 const useCardStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: "space-around",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     flexGrow: 1,
     margin: theme.spacing.unit * 3,
   },
-  wrapper: {
+  itemsWrapper: {
+    minWidth: "60%",
+    flexWrap: "wrap",
+    backgroundColor: theme.palette.secondary.main,
+    paddingLeft: 40,
+    paddingRight: 40,
+    marginBottom: "30px",
+  },
+  checkoutWrapper: {
+    minwidth: "30%",
     backgroundColor: theme.palette.secondary.main,
     paddingLeft: 40,
     paddingRight: 40,
@@ -69,7 +80,7 @@ const Cart = () => {
 
   return (
     <Grid className={classes.root}>
-      <Paper container className={classes.wrapper}>
+      <Paper container className={classes.itemsWrapper}>
         <TableContainer>
           <Table>
             <TableHead>
@@ -128,7 +139,7 @@ const Cart = () => {
           </Table>
         </TableContainer>
       </Paper>
-      <Paper container className={classes.wrapper}>
+      <Paper container className={classes.checkoutWrapper}>
         <TableContainer>
           <TableBody classname={classes.checkoutBody}>
             <TableRow>
