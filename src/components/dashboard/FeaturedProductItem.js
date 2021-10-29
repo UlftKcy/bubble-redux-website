@@ -41,7 +41,7 @@ const FeaturedProductItem = ({ product }) => {
             {brand}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {price}
+            ${price}
           </Typography>
         </CardContent>
       </Card>

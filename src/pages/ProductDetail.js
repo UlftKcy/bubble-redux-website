@@ -27,7 +27,7 @@ const ProductDetail = () => {
           <Item.Content style={{ padding: "30px" }} verticalAlign="middle">
             <Item.Header as="h2">{name}</Item.Header>
             <Item.Description>by {brand}</Item.Description>
-            <Item.Description>{price}</Item.Description>
+            <Item.Description>${price}</Item.Description>
             <Item.Extra>
               <Button
                 onClick={() => dispatch(addProductToCart(detailProduct))}

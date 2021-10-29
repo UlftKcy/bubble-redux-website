@@ -68,7 +68,7 @@ const ShopProduct = ({ category, id }) => {
               <Modal.Description>
                 <Header>{displayProduct.name}</Header>
                 <p>by {displayProduct.brand}</p>
-                <p>{displayProduct.price}</p>
+                <p>${displayProduct.price}</p>
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>

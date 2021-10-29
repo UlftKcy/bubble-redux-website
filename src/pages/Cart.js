@@ -162,7 +162,7 @@ const Cart = () => {
                 </TableRow>
                 <TableRow>
                   <TableCell>TOTALS</TableCell>
-                  <TableCell>{cartProducts.cartTotalAmount}</TableCell>
+                  <TableCell>${cartProducts.cartTotalAmount}</TableCell>
                 </TableRow>
                 <TableRow>
                   <Button variant="contained" color="primary">

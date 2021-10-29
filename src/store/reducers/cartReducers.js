@@ -26,7 +26,7 @@ const cartReducers = (state = initialState, action) => {
           cartQuantity: state.cartItems[existingIndex].cartQuantity + 1,
           cartAmount:
             state.cartItems[existingIndex].cartAmount +
-            parseFloat((1 * action.payload.price).toFixed(2)),
+            1 * action.payload.price,
         };
         toast.success("Increased product quantity", {
           position: "bottom-right",
@@ -35,7 +35,7 @@ const cartReducers = (state = initialState, action) => {
         let newItem = {
           ...action.payload,
           cartQuantity: 1,
-          cartAmount: parseFloat((1 * action.payload.price).toFixed(2)),
+          cartAmount: 1 * action.payload.price,
         };
         state.cartItems.push(newItem);
         toast.success("Product added to cart", {
@@ -46,9 +46,7 @@ const cartReducers = (state = initialState, action) => {
       return {
         ...state,
         cartTotalQuantity: state.cartTotalQuantity + 1,
-        cartTotalAmount:
-          state.cartTotalAmount +
-          parseFloat((1 * action.payload.price).toFixed(2)),
+        cartTotalAmount: state.cartTotalAmount + 1 * action.payload.price,
       };
 
     case DECREASE_PRODUCT_FROM_CART:
@@ -60,8 +58,7 @@ const cartReducers = (state = initialState, action) => {
           ...state.cartItems[itemIndex],
           cartQuantity: state.cartItems[itemIndex].cartQuantity - 1,
           cartAmount:
-            state.cartItems[itemIndex].cartAmount -
-            parseFloat((1 * action.payload.price).toFixed(2)),
+            state.cartItems[itemIndex].cartAmount - 1 * action.payload.price,
         };
         toast.error("Decreased product quantity", {
           position: "bottom-right",
@@ -79,9 +76,7 @@ const cartReducers = (state = initialState, action) => {
       return {
         ...state,
         cartTotalQuantity: state.cartTotalQuantity - 1,
-        cartTotalAmount:
-          state.cartTotalAmount -
-          parseFloat((1 * action.payload.price).toFixed(2)),
+        cartTotalAmount: state.cartTotalAmount - 1 * action.payload.price,
       };
 
     case REMOVE_PRODUCT_FROM_CART:
@@ -104,9 +99,7 @@ const cartReducers = (state = initialState, action) => {
           state.cartTotalQuantity - action.payload.cartQuantity,
         cartTotalAmount:
           state.cartTotalAmount -
-          parseFloat(
-            (action.payload.cartQuantity * action.payload.price).toFixed(2)
-          ),
+          action.payload.cartQuantity * action.payload.price,
       };
     default:
       return state;
