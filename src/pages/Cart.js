@@ -39,8 +39,6 @@ const useCardStyle = makeStyles((theme) => ({
     minWidth: "60%",
     flexWrap: "wrap",
     backgroundColor: theme.palette.secondary.main,
-    paddingLeft: 40,
-    paddingRight: 40,
   },
   checkoutWrapper: {
     minwidth: "30%",
@@ -48,6 +46,17 @@ const useCardStyle = makeStyles((theme) => ({
     paddingLeft: 40,
     paddingRight: 40,
     margin: "30px",
+  },
+  checkoutBody: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "20px",
+  },
+  checkoutRow: {
+    display: "flex",
+    justifyContent: "space-between",
   },
   thead: {
     textAlign: "center",
@@ -59,11 +68,6 @@ const useCardStyle = makeStyles((theme) => ({
   },
   span: {
     fontSize: "1.2rem",
-  },
-  checkoutBody: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
   },
 }));
 
@@ -110,10 +114,10 @@ const Cart = () => {
                       cartProduct;
                     return (
                       <TableRow>
-                        <TableCell scope="row" className={classes.tableCell}>
+                        <TableCell scope="row">
                           <img src={image} fluid className={classes.image} />
                         </TableCell>
-                        <TableCell className={classes.tableCell}>
+                        <TableCell>
                           <span className={classes.span}>{name}</span> <br />
                           {brand}
                         </TableCell>
@@ -153,14 +157,14 @@ const Cart = () => {
           </Paper>
           <Paper container className={classes.checkoutWrapper}>
             <TableContainer>
-              <TableBody classname={classes.checkoutBody}>
-                <TableRow>
+              <TableBody className={classes.checkoutBody}>
+                <TableRow className={classes.checkoutRow}>
                   <TableCell className={classes.thead}>ITEMS</TableCell>
                   <TableCell className={classes.thead}>
                     {cartProducts.cartTotalQuantity}
                   </TableCell>
                 </TableRow>
-                <TableRow>
+                <TableRow className={classes.checkoutRow}>
                   <TableCell>TOTALS</TableCell>
                   <TableCell>${cartProducts.cartTotalAmount}</TableCell>
                 </TableRow>
