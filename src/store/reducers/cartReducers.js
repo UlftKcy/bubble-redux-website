@@ -98,7 +98,16 @@ const cartReducers = (state = initialState, action) => {
         }
       });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      return { ...state };
+      return {
+        ...state,
+        cartTotalQuantity:
+          state.cartTotalQuantity - action.payload.cartQuantity,
+        cartTotalAmount:
+          state.cartTotalAmount -
+          parseFloat(
+            (action.payload.cartQuantity * action.payload.price).toFixed(2)
+          ),
+      };
     default:
       return state;
   }
