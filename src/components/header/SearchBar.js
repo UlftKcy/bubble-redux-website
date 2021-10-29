@@ -42,7 +42,7 @@ const SearchBar = () => {
     setEnteredWord(searchWord)
     console.log(enteredWord)
     const newFilter = displayProducts.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord);
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
     if (searchWord === "") {
       setFilteredData([])
